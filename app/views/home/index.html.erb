@@ -1,0 +1,176 @@
+<div class="flex h-screen mx-auto container">
+  <header class="basis-2/10">
+    <div class="flex flex-col gap-3">
+      <div class="flex invert items-center text-white">
+        <% items = [
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "home",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Anasayfa",
+            header_class: "font-bold text-xl",
+            icon_variant: :solid
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "magnifying-glass",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Keşfet",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "bell",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Bildirimler",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "envelope",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Mesajlar",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "grok.svg",
+            icon_class: "text-white w-7 h-7 invert",
+            header_name: "Grok",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "bookmark",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Yer işaretleri",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "briefcase",
+            icon_class: "text-white w-7 h-7",
+            header_name: "İşler",
+            header_class: "text-xl",
+          },
+          {
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "users",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Topluluklar",
+            header_class: "text-xl",
+          },{
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "check-badge",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Premium",
+            header_class: "text-xl",
+          },{
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "bolt",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Onaylı kuruluşlar",
+            header_class: "text-xl text-nowrap",
+          },{
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "user",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Profil",
+            header_class: "text-xl",
+          },{
+            href_class: "flex ml-1 group",
+            div_class:
+              "flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+                                    rounded-full",
+            icon_name: "ellipsis-horizontal-circle",
+            icon_class: "text-white w-7 h-7",
+            header_name: "Daha fazla",
+            header_class: "text-xl",
+          }
+        ] %>
+        <div
+          class="
+            group rounded-full hover:bg-gray-300 ms-2 mb-2 p-3 group-hover:bg-gray-900
+          "
+        >
+          <%= image_tag "logo.svg", class: "w-7 h-7" %>
+        </div>
+      </div>
+      <!--a href="#" class="flex ml-1 group">
+        <div
+          class="
+            flex items-center pl-4 pr-6 space-x-5 group-hover:bg-gray-900 duration-300 p-2
+            rounded-full
+          "
+        >
+          <%# heroicon "home", options: { class: "text-white w-7 h-7" } %>
+          <h1 class="text-xl">Anasayfa</h1>
+        </div>
+      </a-->
+      <% items.each do |item|%>
+        <a href="#" class="<%= item[:href_class]%>">
+          <div class="<%= item[:div_class]%>">
+            <% if item[:icon_name] == "grok.svg"%>
+              <%= image_tag item[:icon_name],class: item[:icon_class]%>
+            <%else%>
+              <%= heroicon item[:icon_name],options: {class: item[:icon_class]},variant: (item[:icon_variant] || :outline)%>
+            <%end%>
+            <h1 class="<%= item[:header_class]%>"><%= item[:header_name]%></h1>
+          </div>
+        </a>
+      <%end%>
+      <div class="flex mt-1">
+        <button class="text-black bg-white rounded-full text-xl py-3 px-12">
+          Gönderi yayınla
+        </button>
+      </div>
+      <div></div>
+    </div>
+  </header>
+  <main class="basis-5/10 border-gray-700 border-x">
+    <div class="grid grid-cols-2 h-14 border-b border-gray-700">
+      <div class="hover:bg-gray-800 duration-100 flex items-center justify-center">
+        <h3 class="text-md text-gray-400">Sana özel</h3>
+      </div>
+      <div class="hover:bg-gray-900 flex items-center justify-center border-b ">
+        <h3 class="text-md text-white">Takip</h3>
+      </div>
+    </div>
+  </main>
+  <aside class="basis-3/10">
+    <h2>arama gibi kısımları içeren kısım</h2>
+  </aside>
+</div>

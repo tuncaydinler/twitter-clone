@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@config "../../../tailwind.config.js";
+/*
+ *= require font-awesome
+ */
+@custom-variant dark (&:where(.dark, .dark *));
