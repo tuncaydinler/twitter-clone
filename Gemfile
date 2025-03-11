@@ -36,6 +36,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# Add pagination gem for infinite scrolling
+gem "geared_pagination", "~> 1.2"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
