@@ -7,6 +7,6 @@ if User.count == 0
     password: "WormerWormer")
 end
 
-100.times do
-  Post.create(content: Faker::Lorem.paragraph(sentence_count: 40), user: User.first)
+100.times do |i|
+  Post.create(content: "Post #{i} \n\n"+Faker::Lorem.paragraph(sentence_count: 40), user: User.first)
 end

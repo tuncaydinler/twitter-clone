@@ -1,0 +1,103 @@
+<article class="flex flex-row border-b border-white/30 bg-black cursor-pointer">
+  <div class="h-full inline mt-3">
+    <%= image_tag "https://picsum.photos/id/10/200/300",
+    class: "w-10 h-10 rounded-full ms-3" %>
+  </div>
+  <div class="h-full flex flex-col mt-3 ms-3 w-full gap-2">
+    <div class="flex justify-between">
+      <div class="flex gap-2 items-center">
+        <span class="text-md font-bold text-white"><%= post.user.username %></span>
+        <%= link_to post.user.handle, "#", class: "text-md text-white/50" %>
+        <hr class="border border-white/50 w-[2px] h-[2px]">
+        <span class="text-sm text-white/50"><%= short_time_ago(post.created_at) %></span>
+      </div>
+      <div class="me-4">
+        <%= heroicon "ellipsis-horizontal",
+        options: {
+          class:
+            "w-6 h-6 text-white/60 font-bold hover:text-sky-300 hover:bg-sky-950 rounded-full m-1 duration-300",
+        },
+        variant: :outline %>
+      </div>
+    </div>
+    <!-- Post content-->
+    <div class="block text-white bg-black">
+      <p class="text-wrap"><%= post.content %></p>
+    </div>
+
+    <div class="flex justify-between items-center my-3">
+      <div
+        class="
+          flex flex-row gap-1 group hover:bg-sky-950 duration-400 rounded-full p-2
+        "
+        title="Yorum yap"
+      >
+        <%= heroicon "chat-bubble-oval-left",
+        options: {
+          class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
+        },
+        variant: :outline %>
+        <span class="text-sm text-white/50 group-hover:text-sky-600"><%= post.like_count %></span>
+      </div>
+
+      <div
+        class="
+          flex flex-row gap-1 group hover:bg-green-950 rounded-full p-2 duration-400
+        "
+        title="Yeniden yayınla"
+      >
+        <%= heroicon "arrow-path-rounded-square",
+        options: {
+          class: "w-5 h-5 text-white/50 group-hover:text-green-600",
+        },
+        variant: :outline %>
+        <span class="text-sm text-white/50 group-hover:text-green-600"><%= post.like_count %></span>
+      </div>
+
+      <div
+        class="
+          flex flex-row gap-1 group hover:bg-rose-950 rounded-full p-2 duration-400
+        "
+        title="Beğen"
+      >
+        <%= heroicon "heart",
+        options: {
+          class: "w-5 h-5 text-white/50 group-hover:text-rose-600",
+        },
+        variant: :outline %>
+        <span class="text-sm text-white/50 group-hover:text-rose-600"><%= post.like_count %></span>
+      </div>
+      <div
+        class="
+          flex flex-row gap-1 group hover:bg-sky-950 rounded-full p-2 duration-400
+        "
+        title="Görüntüle"
+      >
+        <%= heroicon "chart-bar",
+        options: {
+          class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
+        },
+        variant: :outline %>
+        <span class="text-sm text-white/50 group-hover:text-sky-600"><%= post.like_count %></span>
+      </div>
+      <div class="flex flex-row me-5">
+        <div class="group hover:bg-sky-950 rounded-full duration-400 p-3">
+          <%= heroicon "bookmark",
+          options: {
+            class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
+          },
+          variant: :outline %>
+        </div>
+        <div class="group hover:bg-sky-950 rounded-full duration-400 p-3">
+          <%= heroicon "arrow-up-tray",
+          options: {
+            class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
+          },
+          variant: :outline %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</article>

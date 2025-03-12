@@ -1,0 +1,51 @@
+<%= form_with model: @post do |form| %>
+  <!--textarea
+    class="
+      w-fit bg-black my-4 text-xl outline-none resize-none overflow-hidden
+    "
+    placeholder="Neler Oluyor?"
+  ></textarea-->
+  <%= form.text_area :content,
+                 class:
+                   "w-fit bg-black my-4 text-xl outline-none resize-none overflow-hidden",
+                 placeholder: "Neler oluyor?", required: ""%>
+  <div
+    class="
+      group-focus-within:flex items-center hidden gap-1 justify-start mb-2
+      text-blue-400 text-sm
+    "
+  >
+    <%= heroicon "globe-asia-australia", options: { class: "w-5 h-5 cursor-pointer" } %>
+    <span class="font-bold cursor-pointer">Herkes yanıtlayabilir</span>
+  </div>
+  <div class="h-[1px] w-[90%] bg-gray-700 hidden group-focus-within:block"></div>
+  <div class="flex justify-between h-14 items-center">
+    <div class="flex text-blue-400 gap-5">
+      <%= heroicon "photo",
+      options: {
+        class: "w-5 h-5 cursor-pointer",
+      },
+      variant: :outline %>
+      <%= heroicon "gif", options: { class: "w-5 h-5 cursor-pointer" }, variant: :outline %>
+      <%= heroicon "list-bullet", options: { class: "w-5 h-5 cursor-pointer" } %>
+      <%= heroicon "adjustments-horizontal", options: { class: "w-5 h-5 cursor-pointer" } %>
+      <%= heroicon "calendar", options: { class: "w-5 h-5 cursor-pointer" } %>
+      <%= heroicon "map-pin",
+      options: {
+        class: "w-5 h-5 cursor-pointer",
+      },
+      variant: :outline %>
+    </div>
+
+    <!--button
+      class="
+        px-3 py-2 rounded-full font-bold bg-white/85 text-black
+        me-4 mb-3
+      "
+    >
+      Gönderi yayınla
+    </button-->
+    <%= form.submit "Gönderi yayınla",class: "px-3 py-2 rounded-full font-bold bg-white/85 text-black
+        me-4 mb-3"%>
+  </div>
+<% end %>
