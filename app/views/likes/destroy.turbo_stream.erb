@@ -1,0 +1,19 @@
+<%= turbo_stream.replace dom_id(@post, :like) do %>
+  <div id="<%= dom_id(@post,:like)%>">
+    <%= button_to post_like_path(@post),
+    method: :post,
+    title: "Beğen",
+  class:
+    "
+        flex flex-row gap-1 group hover:bg-rose-950 rounded-full p-2 duration-400
+  " do %>
+      <%= heroicon "heart",
+      options: {
+        class: "w-5 h-5 text-white/50 group-hover:text-rose-600",
+      },
+      variant: :outline %>
+      <span class="text-sm text-white/50 group-hover:text-rose-600"><%= @post.likes.count %></span>
+
+    <% end %>
+  </div>
+<% end %>

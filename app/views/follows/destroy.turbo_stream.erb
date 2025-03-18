@@ -1,0 +1,13 @@
+<%= turbo_stream.replace dom_id(@user) do %>
+  <div
+    id="<%= dom_id(@user) %>"
+    class="flex items-center"
+    onclick="event.stopPropagation()"
+  >
+    <%= button_to "Takip et",
+    user_follow_path(@user),
+    method: :post,
+    class:
+      "bg-white text-black rounded-full text-nowrap font-bold px-4 py-1 hover:bg-white/85 duration-300" %>
+  </div>
+<% end %>%>

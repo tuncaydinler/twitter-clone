@@ -232,7 +232,7 @@
         class: "w-11 h-11 rounded-full m-3 cursor-pointer" %>
       </div>
       <%= turbo_frame_tag :posts_form,
-      src: new_posts_path,
+      src: new_post_path,
       loading: :lazy,
       class: "w-full group" %>
 
@@ -243,9 +243,30 @@
       <% end %>
     </div>
     <% unless @page.last? %>
-      <%= turbo_frame_tag :pagination, src: root_path(page: @page.next_param, format: :turbo_stream), loading: :lazy do %>
-        <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
+      <%= turbo_frame_tag :pagination, src: root_path(page: @page.next_param, format: :turbo_stream), class: "flex justify-center my-6",loading: :lazy do %>
+        <svg
+          class="mr-3 h-5 w-5 animate-spin text-sky-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
         </svg>
+        <span class="font-medium text-sky-600">
+          Yükleniyor...
+        </span>
       <% end %>
     <% end %>
   </main>
@@ -353,26 +374,27 @@
         <li>
           <h3 class="text-white font-[750] text-xl">Kimi takip etmeli</h3>
         </li>
-        <% 3.times do %>
-          <% name = Faker::Name.unique.name %>
+        <% @rand_users.each do |user| %>
           <li>
-            <a href="#" class="flex gap-2 justify-between">
+            <%= link_to profile_path(user.handle.delete("@")),class: "flex gap-2 justify-between" do %>
               <div class="flex gap-2">
                 <div>
                   <%= image_tag "https://picsum.photos/id/#{rand(1..200)}/200/300",
                   class: "w-11 h-11 rounded-full" %>
                 </div>
                 <div>
-                  <h3 class="text-sm font-bold text-white truncate hover:underline"><%= name.slice(0..7) %></h3>
-                  <span class="text-white/60">@<%= name.downcase.gsub(" ", "").slice(0..7) %></span>
+                  <h3 class="text-sm font-bold text-white truncate hover:underline"><%= user.username %></h3>
+                  <span class="text-white/60"><%= user.handle %></span>
                 </div>
               </div>
-              <div class="flex items-center">
-                <%= button_tag "Takip et",
+              <div id="<%= dom_id(user)%>"class="flex items-center" onclick="event.stopPropagation()">
+                <%= button_to "Takip et",
+                user_follow_path(user),
+                method: :post,
                 class:
                   "bg-white text-black rounded-full text-nowrap font-bold px-4 py-1 hover:bg-white/85 duration-300" %>
               </div>
-            </a>
+            <% end %>
           </li>
         <% end %>
         <li>

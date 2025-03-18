@@ -1,10 +1,19 @@
+User.destroy_all
 Post.destroy_all
-if User.count == 0
-  User.create!(
-    username: "Tuncay Dinler",
-    handle: "@tuncaydinler",
-    email_address: 'tuncaydinleroffical@gmail.com',
-    password: "WormerWormer")
+
+User.create!(
+  username: "Tuncay Dinler",
+  handle: "@tuncaydinler",
+  email_address: 'tuncaydinleroffical@gmail.com',
+  password: "WormerWormer")
+
+50.times do
+  User.create! do
+    it.username = Faker::Internet.unique.username
+    it.handle = "@"+Faker::Internet.unique.username
+    it.email_address = Faker::Internet.unique.email
+    it.password = "WormerWormer"
+  end
 end
 
 100.times do |i|

@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
+  get "/:handle" => "users#show", as: :profile
 
-  resource :posts
+  resources :posts do
+    # Post like, unlike
+    post "like" => "likes#create"
+    delete "unlike" => "likes#destroy"
+  end
+
+  resources :users do
+    post "follow" => "follows#create"
+    delete "unfollow" => "follows#destroy"
+  end
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
