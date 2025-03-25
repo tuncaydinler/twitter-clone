@@ -1,10 +1,12 @@
 <%= turbo_stream.replace dom_id(@user) do %>
   <div id="<%= dom_id(@user) %>" class="flex items-center" onclick="event.stopPropagation()">
-    <%= button_to user_unfollow_path(@user),
-      method: :delete, 
-      data: { 
-        turbo_confirm: "Bu kullanıcıyı takip etmeyi bırakmak istediğinize emin misiniz?"
-      }, 
+    <%= render "application/sweetalert_template"%>
+    <%= button_to user_unfollow_path(@user.handle),
+      method: :delete,
+      data: {
+        controller: "unfollow",
+        unfollow_handle_value: @user.handle,
+        turbo_confirm: "Takibi bırakmak istediğinize emin misiniz?"},
       class: "bg-black group text-white rounded-full w-[135px] 
       text-nowrap font-bold px-4 py-1 
       hover:border-red-700 hover:text-red-700 duration-500 

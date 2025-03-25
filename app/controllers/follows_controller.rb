@@ -2,9 +2,6 @@ class FollowsController < ApplicationController
   before_action :find_user, only: %i[ create destroy ]
 
   def create
-    puts "#" * 100
-    puts "hello wormer"
-    puts "#" * 100
     Current.user.follow(@user)
 
     respond_to do |format|
@@ -21,6 +18,9 @@ class FollowsController < ApplicationController
   end
   private
   def find_user
-    @user = User.find(params[:user_id])
+    puts "#" * 1000
+    puts params
+    puts "#" * 1000
+    @user = User.find_by(handle: params[:user_id])
   end
 end

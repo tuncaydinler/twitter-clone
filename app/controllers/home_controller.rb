@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   before_action :random_users, only: %i[index]
   def index
-    posts = Post.order(created_at: :desc)
-    # posts = Current.user.following.posts.order(created_at: :desc)
+    # posts = Post.order(created_at: :desc)
+    posts = Post.where(user_id: Current.user.following.pluck(:id)).order(created_at: :desc)
     set_page_and_extract_portion_from posts, per_page: 5
   end
 

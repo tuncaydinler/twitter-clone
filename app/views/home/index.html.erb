@@ -389,7 +389,7 @@
               </div>
               <div id="<%= dom_id(user)%>"class="flex items-center" onclick="event.stopPropagation()">
                 <%= button_to "Takip et",
-                user_follow_path(user),
+                user_follow_path(user.handle),
                 method: :post,
                 class:
                   "bg-white text-black rounded-full text-nowrap font-bold px-4 py-1 hover:bg-white/85 duration-300" %>
@@ -401,7 +401,7 @@
           <%= link_to("Daha fazla göster", "#", class: "text-sky-500 text-sm") %>
         </li>
       </ul>
-      <div class="text-white/50 sticky top-[860px] ">
+      <div class="text-white/50 sticky  top-[860px] ">
         <nav class="space-x-3 space-y-3">
           <%= link_to "Hizmet şartları", "#", class: "capitalize text-sm hover:underline" %>
           <%= link_to "Gizlilik Politikası", "#", class: "capitalize text-sm hover:underline" %>
