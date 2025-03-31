@@ -12,7 +12,7 @@ export default class extends Controller {
           text: "Bu kullanıcının gönderileri artık Sana Özel zaman akışında görüntülenmeyecek. Gönderileri korumalı değilse kullanıcının profilini görüntülemeye devam edebilirsin. ",
           template: "#unfollow-template",
           customClass: {
-            popup: "!bg-black !rounded-lg !shadow-xl !w-80 !h-100 !pt-2",
+            popup: "!bg-black !rounded-lg !shadow-xl !w-80 !h-105 !pt-2",
             actions: "flex flex-col gap-1 !w-full",
             container: "!bg-gray-500/50",
             title: "!text-xl !font-bold !text-white !text-start",
