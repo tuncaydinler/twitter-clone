@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :find_user, only: [ :show ]
 
   def show
+    # TODO burası geçici
+    @post = @user.posts.first
+    @comment = @post.comments.build
   end
 
   private

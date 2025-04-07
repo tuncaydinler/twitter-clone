@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # Post like, unlike
     post "like" => "likes#create"
     delete "unlike" => "likes#destroy"
+
+    resources :comments, only: [ :new, :create, :destroy, :index ]
   end
 
   resources :users do

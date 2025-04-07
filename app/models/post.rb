@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :content, presence: { message: "kısmı boş olamaz!" },
     uniqueness: { message: "ile aynı içerik zaten var!" },

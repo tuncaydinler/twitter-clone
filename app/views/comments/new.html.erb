@@ -1,24 +1,4 @@
-<!--div data-controller="comment">
-  <button class="p-3 text-xl text-white bg-green-400 rounded-xl " data-micromodal-trigger="modal-1">Modalı Aç</button>
-
-  <div class="modal hidden" id="modal-1" aria-hidden="true">
-    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-      <div class="modal__container" role="dialog" aria-modal="true">
-        <header class="modal__header">
-          <h2>Başlık</h2>
-          <button aria-label="Close modal" data-micromodal-close>X</button>
-        </header>
-        <main class="modal__content">
-          <p>Buraya modal içeriği gelir.</p>
-        </main>
-        <footer class="modal__footer">
-          <button data-micromodal-close>İptal</button>
-        </footer>
-      </div>
-    </div>
-  </div>
-</div-->
-<div data-controller="comment">
+<div>
   <button class="p-3 text-xl text-white bg-green-400 rounded-xl " data-micromodal-trigger="modal-1">Modalı Aç</button>
   <div id="modal-1" class="modal hidden bg-black border border-1 border-white/40 w-[590px] h-auto rounded-xl flex-col">
     <div class="flex justify-between px-3 py-2">
@@ -30,7 +10,7 @@
       </div>
     </div>
     <div class="ps-3">
-      <%= render "posts/post", post: @user.posts.first, type: :comment%>
+      <%= render "posts/post", post: @post, type: :comment%>
       <div class="mt-5">
         <div class="flex gap-2 border-b border-white/20">
           <div class="img ps-3">

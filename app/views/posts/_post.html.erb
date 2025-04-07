@@ -1,4 +1,5 @@
-<article class="flex flex-row border-b border-white/30 bg-black cursor-pointer">
+<% type ||= :post%>
+<article class="flex flex-row <%= 'border-b border-white/30' if type == :post%> bg-black cursor-pointer">
   <div class="h-full inline mt-3">
     <%= image_tag "https://picsum.photos/id/10/200/300",
     class: "w-10 h-10 rounded-full ms-3" %>
@@ -24,8 +25,9 @@
     <div class="block text-white bg-black">
       <p class="text-wrap"><%= post.content %></p>
     </div>
-      <%= render "posts/actions",post: post%>
+      <% if type == :post%>
+        <%= render "posts/actions",post: post%>
+      <%end%>
     </div>
-
   </div>
 </article>
