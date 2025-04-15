@@ -1,22 +1,14 @@
 <div class="flex justify-between items-center my-3">
   <!-- Comment button-->
-  <div
-    class="
-      flex flex-row gap-1 group hover:bg-sky-950 duration-400 rounded-full p-2
-    "
-    title="Yorum yap"
-    data-custom-open
-  >
+  <%= link_to new_post_comment_path(post),title: "Yorum yap",data: { turbo_frame: "modal-frame", custom_open: "modal-frame" },
+    class: "flex flex-row gap-1 group hover:bg-sky-950 duration-400 rounded-full p-2" do%>
     <%= heroicon "chat-bubble-oval-left",
-    options: {
-      class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
-    },
-    variant: :outline %>
-    <span class="text-sm text-white/50 group-hover:text-sky-600"><%= post.comments.count %></span>
-    <%= turbo_frame_tag :new_post_comment,
-      src: new_post_comment_path(post),
-      loading: :lazy%>
-  </div>
+      options: {
+        class: "w-5 h-5 text-white/50 group-hover:text-sky-600",
+      },
+      variant: :outline %>
+    <span id="post_comments_count_<%= dom_id(post)%>" class="text-sm text-white/50 group-hover:text-sky-600"><%= post.comments.count %></span>
+  <%end%>
   <!-- Repost button-->
   <div
     class="

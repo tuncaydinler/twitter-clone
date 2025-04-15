@@ -7,13 +7,14 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user = Current.user
-    if @comment.save
-      respond_to do |format|
+    respond_to do |format|
+      if @comment.save
         format.turbo_stream
-        format.html { redirect_to root_path }
+        format.html { redirect_to post_path(@post) }
+      else
+        format.turbo_stream { turbo_stream.replace "hello" }
+        format.html { redirect_to post_path(@post), alert: "Yorum eklenemedi" }
       end
-    else
-    redirect_to user_follow_path User.first
     end
   end
 

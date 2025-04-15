@@ -1,13 +1,7 @@
 <%= form_with model: @post do |form| %>
-  <!--textarea
-    class="
-      w-fit bg-black my-4 text-xl outline-none resize-none overflow-hidden
-    "
-    placeholder="Neler Oluyor?"
-  ></textarea-->
   <%= form.text_area :content,
                  class:
-                   "w-fit bg-black my-4 text-xl outline-none resize-none overflow-hidden",
+                   "w-[90%] lg:w-[97%] bg-black my-4 text-xl outline-none resize-none overflow-hidden",
                  placeholder: "Neler oluyor?", required: ""%>
   <div
     class="
@@ -28,11 +22,11 @@
       variant: :outline %>
       <%= heroicon "gif", options: { class: "w-5 h-5 cursor-pointer" }, variant: :outline %>
       <%= heroicon "list-bullet", options: { class: "w-5 h-5 cursor-pointer" } %>
-      <%= heroicon "adjustments-horizontal", options: { class: "w-5 h-5 cursor-pointer" } %>
-      <%= heroicon "calendar", options: { class: "w-5 h-5 cursor-pointer" } %>
+      <%= heroicon "adjustments-horizontal", options: { class: "w-5 h-5 cursor-pointer hidden sm:block" } %>
+      <%= heroicon "calendar", options: { class: "w-5 h-5 cursor-pointer hidden sm:block" } %>
       <%= heroicon "map-pin",
       options: {
-        class: "w-5 h-5 cursor-pointer",
+        class: "w-5 h-5 cursor-pointer hidden sm:block",
       },
       variant: :outline %>
     </div>
@@ -45,7 +39,7 @@
     >
       Gönderi yayınla
     </button-->
-    <%= form.submit "Gönderi yayınla",class: "px-3 py-2 rounded-full font-bold bg-white/85 text-black
+    <%= form.submit "Gönderi yayınla",class: "px-1 py-2 lg:px-3 lg:py-2 rounded-full font-bold bg-white/85 text-black
         me-4 mb-3"%>
   </div>
 <% end %>

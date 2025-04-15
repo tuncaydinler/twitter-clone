@@ -1,26 +1,29 @@
-<div>
-  <button class="p-3 text-xl text-white bg-green-400 rounded-xl " data-micromodal-trigger="modal-1">Modalı Aç</button>
-  <div id="modal-1" class="modal hidden bg-black border border-1 border-white/40 w-[590px] h-auto rounded-xl flex-col">
-    <div class="flex justify-between px-3 py-2">
-      <div class="hover:bg-white/10 duration-300 p-2 rounded-full" data-micromodal-close>
-        <%= heroicon "x-mark",options: {class: "text-white w-5 h-5"}%>
-      </div>
-      <div class="hover:bg-sky-900/20 duration-300 px-3 py-1 rounded-full">
-        <span class="text-sky-500 capitalize">taslaklar</span>
-      </div>
-    </div>
-    <div class="ps-3">
-      <%= render "posts/post", post: @post, type: :comment%>
-      <div class="mt-5">
-        <div class="flex gap-2 border-b border-white/20">
-          <div class="img ps-3">
-            <%= image_tag "https://picsum.photos/id/237/200/300",
-            class: "w-10 h-10 rounded-full m-3 cursor-pointer" %>
+<%= turbo_frame_tag "modal-frame" do%>
+  <div id="modal-1" class="micromodal fixed inset-0 z-50" aria-hidden="true" data-action="keydown.esc->comment#escapeClose">
+    <div id="wormer" class="micromodal__overlay fixed inset-0 bg-sky-100/20 flex items-center justify-center"
+       data-action="click->comment#closeModal">
+     <div class="bg-black w-auto lg:w-[600px] h-auto rounded-xl flex-col">
+        <div class="flex justify-between px-3 py-2 micromodal__container">
+          <div class="hover:bg-white/10 duration-300 p-2 rounded-full" data-action="click->comment#closeModal">
+            <%= heroicon "x-mark",options: {class: "text-white w-5 h-5",data_action: "click->comment#closeModal"}%>
           </div>
-          <%= render "comments/form", post: @post, comment: @comment%>
-      </div>
+          <div class="hover:bg-sky-900/20 duration-300 px-3 py-1 rounded-full">
+            <span class="text-sky-500 capitalize">taslaklar</span>
+          </div>
+        </div>
+        <div class="mx-3">
+          <%= render "posts/post", post: @post, type: :comment%>
+          <div class="mt-5">
+            <div class="flex gap-2 border-b border-white/20">
+              <div class="img ps-3">
+                <%= image_tag "https://picsum.photos/id/237/200/300",
+                class: "w-10 h-10 rounded-full m-3 cursor-pointer" %>
+              </div>
+              <%= render "comments/form", post: @post, comment: @comment%>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
+<%end%>

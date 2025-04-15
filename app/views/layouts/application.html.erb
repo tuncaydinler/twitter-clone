@@ -29,7 +29,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="dark bg-white dark:bg-black dark:text-white text-black">
+  <body data-controller="comment" class="dark bg-white dark:bg-black dark:text-white text-black">
+    <%= turbo_frame_tag "modal-frame" do %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

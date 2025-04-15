@@ -4,3 +4,9 @@
 <%# turbo_stream.prepend :posts do %>
 <%# render @post, post: @post %>
 <%# end %>
+<%= turbo_stream.replace :posts_form do%>
+  <%= turbo_frame_tag :posts_form,
+      src: new_post_path,
+      loading: :lazy,
+      class: "w-[80%] group sm:w-[90%]" %>
+<%end%>

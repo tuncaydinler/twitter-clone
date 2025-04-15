@@ -182,7 +182,7 @@
           <div class="flex gap-2">
             <div class="flex justify-center">
               <%= image_tag "https://picsum.photos/id/#{rand(1..200)}/200/300",
-              class: "w-11 h-11 rounded-full" %>
+              class: "w-10 h-10 lg:w-11 lg:h-11 rounded-full" %>
             </div>
             <div class="hidden xl:block">
               <h3 class="text-sm font-bold text-white">Tuncay Dinler</h3>
@@ -226,15 +226,15 @@
         <hr class="border-2 w-13 rounded-full border-blue-500">
       </a>
     </div>
-    <div class="flex gap-2 border-b border-white/20">
-      <div class="img">
+    <div class="flex lg:gap-2 border-b border-white/20">
+      <div class="img w-[20%] sm:w-[10%]">
         <%= image_tag "https://picsum.photos/id/237/200/300",
-        class: "w-11 h-11 rounded-full m-3 cursor-pointer" %>
+        class: "w-10 h-10 lg:w-11 lg:h-11 rounded-full m-3 cursor-pointer" %>
       </div>
       <%= turbo_frame_tag :posts_form,
       src: new_post_path,
       loading: :lazy,
-      class: "w-full group" %>
+      class: "w-[80%] group sm:w-[90%]" %>
 
     </div>
     <div id="posts" class="flex flex-col">

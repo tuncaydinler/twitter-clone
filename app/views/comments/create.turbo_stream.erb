@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "post_comments_count_#{dom_id(@post)}" do%>
+  <span id="post_comments_count_<%= dom_id(@post)%>" class="text-sm text-white/50 group-hover:text-sky-600">
+    <%= @post.comments.count %>
+  </span>
+<%end%>
+<%= turbo_stream.replace "modal-frame" do%>
+  <%= turbo_frame_tag "modal-frame" do %>
+  <% end %>
+<%end%>
