@@ -1,14 +1,14 @@
 <% type ||= :post%>
 <article class="flex flex-row <%= 'border-b border-white/30' if type == :post%> bg-black cursor-pointer">
-  <div class="h-full inline mt-3">
+  <div class="h-full inline mt-3 w-[15%] lg:w-auto">
     <%= image_tag "https://picsum.photos/id/10/200/300",
     class: "w-10 h-10 rounded-full ms-3" %>
   </div>
-  <div class="h-full flex flex-col mt-3 ms-3 w-full gap-2">
+  <div class="h-full flex flex-col mt-3 ms-3 gap-2 w-[85%] lg:w-full">
     <div class="flex justify-between">
       <div class="flex gap-2 items-center">
         <span class="text-md font-bold text-white"><%= post.user.username %></span>
-        <%= link_to post.user.handle, "#", class: "text-md text-white/50" %>
+        <%= link_to post.user.handle, "#", class: "w-[20%] lg:w-auto text-md text-white/50 truncate md:whitespace-normal" %>
         <hr class="border border-white/50 w-[2px] h-[2px]">
         <span class="text-sm text-white/50"><%= short_time_ago(post.created_at) %></span>
       </div>

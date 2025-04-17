@@ -30,7 +30,7 @@
     header_class: "text-xl",
   },
   {
-    href_class: "flex  group",
+    href_class: "flex group",
     div_class:
       "flex items-center group-hover:bg-white/10 duration-300
                                     rounded-full",
@@ -40,9 +40,9 @@
     header_class: "text-xl",
   },
   {
-    href_class: "flex  group",
+    href_class: "flex group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "flex items-center mt-2 sm:m-0 group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "grok.svg",
     icon_class: "text-white w-7 h-7 invert",
@@ -52,7 +52,7 @@
   {
     href_class: "flex  group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "hidden sm:flex items-center group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "bookmark",
     icon_class: "text-white w-7 h-7",
@@ -62,7 +62,7 @@
   {
     href_class: "flex  group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "flex items-center hidden sm:flex group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "briefcase",
     icon_class: "text-white w-7 h-7",
@@ -82,7 +82,7 @@
   {
     href_class: "flex  group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "hidden sm:flex items-center group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "check-badge",
     icon_class: "text-white w-7 h-7",
@@ -92,7 +92,7 @@
   {
     href_class: "flex  group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "hidden sm:flex items-center group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "bolt",
     icon_class: "text-white w-7 h-7",
@@ -102,7 +102,7 @@
   {
     href_class: "flex  group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "items-center hidden sm:flex group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "user",
     icon_class: "text-white w-7 h-7",
@@ -112,7 +112,7 @@
   {
     href_class: "flex group",
     div_class:
-      "flex items-center group-hover:bg-white/10 duration-300
+      "hidden sm:flex items-center group-hover:bg-white/10 duration-300
                                     rounded-full",
     icon_name: "ellipsis-horizontal-circle",
     icon_class: "text-white w-7 h-7",
@@ -120,13 +120,13 @@
     header_class: "text-xl",
   },
 ] %>
-<div class="flex mx-auto container">
-  <header class="basis-3/20 xl:basis-2/10">
-    <div class=" flex items-start sticky top-0 flex-col gap-2 xl:gap-3 h-screen ">
-      <div class=" invert text-white w-full flex justify-center xl:justify-start ">
+<div class="flex flex-col-reverse sm:flex-row mx-auto container">
+  <header class="sticky bg-black/20 backdrop-blur-md bottom-0 sm:basis-3/20 xl:basis-2/10">
+    <div class="flex justify-stretch items-start sticky bottom-0 md:top-0 flex-row sm:flex-col gap-2 xl:gap-3 md:h-screen">
+      <div class="hidden sm:flex invert text-white w-full justify-center xl:justify-start ">
         <div
           class="
-            flex items-center justify-center py-3 ms-1 px-3 space-x-5 rounded-full
+            hidden sm:flex items-center justify-center py-3 ms-1 px-3 space-x-5 rounded-full
             hover:bg-gray-300 duration-300
           "
         >
@@ -134,7 +134,7 @@
         </div>
       </div>
       <% items.each do |item| %>
-        <div class="w-full">
+        <div class="w-full <%= 'hidden sm:block' if item[:div_class].match('hidden')%>">
           <a
             href="#"
             class="
@@ -159,7 +159,7 @@
           </a>
         </div>
       <% end %>
-      <div class="flex justify-center mt-1 w-full">
+      <div class="hidden md:flex justify-center mt-1 w-full">
         <a
           href="#"
           class="text-black bg-white rounded-full text-xl p-0 xl:py-3 xl:px-12"
@@ -171,7 +171,7 @@
           } %>
         </a>
       </div>
-      <div class=" h-full flex items-end justify-center xl:justify-start w-full ">
+      <div class="h-full hidden sm:flex items-end justify-center xl:justify-start w-full ">
         <a
           href="#"
           class="
