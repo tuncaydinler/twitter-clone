@@ -122,7 +122,7 @@
 ] %>
 <div class="flex flex-col-reverse sm:flex-row mx-auto container">
   <header class="sticky bg-black/20 backdrop-blur-md bottom-0 sm:basis-3/20 xl:basis-2/10">
-    <div class="flex justify-stretch items-start sticky bottom-0 md:top-0 flex-row sm:flex-col gap-2 xl:gap-3 md:h-screen">
+  <div class="flex justify-stretch items-start sticky bottom-0 sm:top-0 flex-row sm:flex-col gap-2 xl:gap-3 md:h-screen">
       <div class="hidden sm:flex invert text-white w-full justify-center xl:justify-start ">
         <div
           class="
@@ -227,14 +227,14 @@
       </a>
     </div>
     <div class="flex lg:gap-2 border-b border-white/20">
-      <div class="img w-[20%] sm:w-[10%]">
+      <div class="img w-[15%] sm:w-[10%]">
         <%= image_tag "https://picsum.photos/id/237/200/300",
         class: "w-10 h-10 lg:w-11 lg:h-11 rounded-full m-3 cursor-pointer" %>
       </div>
       <%= turbo_frame_tag :posts_form,
       src: new_post_path,
       loading: :lazy,
-      class: "w-[80%] group sm:w-[90%]" %>
+      class: "w-[85%] group sm:w-[90%]" %>
 
     </div>
     <div id="posts" class="flex flex-col">
